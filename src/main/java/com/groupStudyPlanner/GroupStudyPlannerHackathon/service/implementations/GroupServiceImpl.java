@@ -72,9 +72,11 @@ public class GroupServiceImpl implements GroupService {
     }
 
     public GroupDAO findById(UUID gid) {
-        return groupRepository.findById(gid)
-                .orElseThrow(() -> new ApiRuntimeException(CommonConstants.GROUP_NOT_FOUND, HttpStatus.NOT_FOUND));
-    }
+        Optional<GroupDAO> groupDAO = groupRepository.findById(gid);
+        if(groupDAO.isEmpty()){
+            throw new ApiRuntimeException(CommonConstants.GROUP_NOT_FOUND, HttpStatus.NOT_FOUND);
+        }
+        return groupDAO.get();}
 
     public BasicResDTO addMember(UserDAO user, GroupDAO groupDAO) {
         UserToGroupMapDAO userToGroupMapDAO = UserToGroupMapDAO.builder()
@@ -128,9 +130,10 @@ public class GroupServiceImpl implements GroupService {
 
     public BasicResDTO addResource(ProductReqDTO productReqDTO, UserDAO user, GroupDAO groupDAO) {
         ResourcesDAO resourcesDAO = ResourcesDAO.builder()
-                .groupId(groupDAO)
                 .resourceName(productReqDTO.name())
                 .link(productReqDTO.url())
+                .owner(user)
+                .groupId(groupDAO)
                 .build();
         resourcesRepository.save(resourcesDAO);
         return new BasicResDTO(CommonConstants.RESOURCE_ADDED, HttpStatus.CREATED);

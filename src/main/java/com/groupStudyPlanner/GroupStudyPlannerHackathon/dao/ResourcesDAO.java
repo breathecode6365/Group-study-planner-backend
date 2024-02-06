@@ -22,7 +22,7 @@ public class ResourcesDAO {
     @Column(name = "rid", unique = true, updatable = false, nullable = false)
     private UUID rid;
 
-    @Column(name = "name", nullable = false)
+    @Column(n   ame = "name", nullable = false)
     private String resourceName;
 
     @Column(name = "link", nullable = false)
