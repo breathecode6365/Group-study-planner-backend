@@ -33,8 +33,18 @@ Follow these steps to install and set up the backend:
    ```bash
    git clone --recursive https://github.com/breathecode6365/Group-Study-Planner-Hackathon
    ```
+3. Setup mail configuration:
 
-3. Configure the Database:
+   - Update the mail configuration in the `src/main/resources/application.properties` file:
+
+     ```properties
+     spring.mail.host=smtp.gmail.com
+     spring.mail.port=587
+     spring.mail.username: your-email-id
+     spring.mail.password: created-app-password using google account under 2 factor authentication
+     ```
+
+4. Configure the Database:
 
    - Group Study Planner backend uses PostgreSQL. If you prefer using Docker for the database, you can run the following Docker command:
 
@@ -46,7 +56,7 @@ Follow these steps to install and set up the backend:
 
      **Note:** If you already have a PostgreSQL server running, skip this step and update the database configuration in `src/main/resources/application.properties` accordingly.
 
-4. Update the Database Configuration:
+5. Update the Database Configuration:
 
    - Update the database configuration in the `src/main/resources/application.properties` file:
 
