@@ -73,7 +73,7 @@ public class InvitationServiceImpl implements InvitationService {
             throw new ApiRuntimeException(CommonConstants.INVITATION_EXPIRED, HttpStatus.BAD_REQUEST);
         }
         if(!groupInvitationDAO.getReceiver().getUid().equals(userDAO.getUid())){
-            return new BasicResDTO(CommonConstants.UNAUTHORISED_OPERATION, HttpStatus.BAD_REQUEST);
+            return new BasicResDTO("This is not your Invitation", HttpStatus.BAD_REQUEST);
         }
         return groupService.addMember(groupInvitationDAO.getReceiver(), groupInvitationDAO.getInvitedTo());
 

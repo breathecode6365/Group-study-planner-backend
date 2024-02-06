@@ -4,6 +4,7 @@
 
 - [Introduction](#introduction)
 - [Installation](#installation)
+- [DB Schema](#db-schema)
 - [Usage](#usage)
 - [Api Doc](#api-doc)
 
@@ -76,6 +77,10 @@ Follow these steps to install and set up the backend:
 6. Verify Installation:
 
    - Open a web browser and navigate to `http://localhost:8080/auth/hello`. You should see a welcome message.
+## DB Schema
+
+The Group Study Planner backend uses a PostgreSQL database with the following schema:
+![DB Schema](./doc%20resources/Group%20Study%20Planner.png)
 
 ## Usage
 

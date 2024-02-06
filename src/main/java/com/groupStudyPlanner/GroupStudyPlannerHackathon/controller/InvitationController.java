@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("invitation")
-public class InvitationController {
+public class    InvitationController {
     private final UserService userService;
     private final GroupService groupService;
     private final InvitationService invitationService;

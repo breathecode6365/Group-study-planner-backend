@@ -48,7 +48,7 @@
             Please log in to your account and accept the invitation.
         </p>
         <p>
-            <a href=''>Links under development but your token is: <b>${token}</b></a>
+            <a href='http://localhost:5173/invitation/verify/${token}'>http://localhost:5173/invitation/verify/${token}</b></a>
         </p>
     </div>
     <div class='footer'>
